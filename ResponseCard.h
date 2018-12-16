@@ -4,8 +4,7 @@
 #include <string>
 #include "user.h"
 
-class responseCard
-{
+class responseCard : public Card {
 	private: 
 		User usersCard;
 

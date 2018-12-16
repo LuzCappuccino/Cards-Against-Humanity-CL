@@ -10,8 +10,9 @@ class Card {
 		std::string generalText;
 
 	public:
-		Card(std::string generalText);
+		Card(std::string gt);
 		std::string getGeneralText();
+		void printGeneralText();
 }
 
 #endif 
