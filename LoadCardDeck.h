@@ -3,6 +3,8 @@
 #include <fstream>
 #include <set>
 
+#include "Card.h"
+
 class LoadCardDeck {
 	private: 
 		std::string promptFileName;
@@ -12,7 +14,8 @@ class LoadCardDeck {
 
 	public:
 		LoadCardDeck(std::string pd, std::string rd);
+		~LoadCardDeck();
 		void load();
-		std::set<Card> returnPromptDeck();
-		std::set<Card> returnResponseDeck();
-}
+		std::set<Card*> returnPromptDeck();
+		std::set<Card*> returnResponseDeck();
+};

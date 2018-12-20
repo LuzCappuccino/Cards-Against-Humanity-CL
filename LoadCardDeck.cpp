@@ -1,4 +1,5 @@
 #include "LoadCardDeck.h"
+#include "Card.h"
 
 #include <string>
 #include <fstream>
@@ -7,6 +8,11 @@
 
 LoadCardDeck::LoadCardDeck(std::string pd, std::string rd) : 
 promptFileName(pd), responseFileName(rd) { }
+
+/* TODO: iterate through both sets and delete pointers to cards*/
+LoadCardDeck::~LoadCardDeck() {
+
+}
 
 void LoadCardDeck::load() {
 	/* init and load in file */
@@ -17,8 +23,7 @@ void LoadCardDeck::load() {
 		std::string singleLine;
 		while(std::getline(promptDeckFile, singleLine)) {
 			Card* newPrompt = new Card(singleLine);
-			newPrompt->printGeneralText();
-			this.promptDeck.insert(newPrompt);
+			this->promptDeck.insert(newPrompt);
 		}
 	} else {
 		std::cout << "Could not open prompt deck file. \n";
@@ -32,8 +37,7 @@ void LoadCardDeck::load() {
 		std::string singleLine;
 		while(std::getline(responseDeckFile, singleLine)) {
 			Card* newResponse = new Card(singleLine);
-			newResponse->printGeneralText();
-			this.responseDeck.insert(newResponse);
+			this->responseDeck.insert(newResponse);
 		}
 	} else {
 		std::cout << "Could not open response deck file. \n";
@@ -41,10 +45,10 @@ void LoadCardDeck::load() {
 	responseDeckFile.close();
 }
 
-std::set<Card> LoadCardDeck::returnPromptDeck() {
-
+std::set<Card*> LoadCardDeck::returnPromptDeck() {
+	return this->promptDeck;
 }
 
-std::set<Card> LoadCardDeck::returnResponseDeck() {
-
+std::set<Card*> LoadCardDeck::returnResponseDeck() {
+	return this->responseDeck;
 }

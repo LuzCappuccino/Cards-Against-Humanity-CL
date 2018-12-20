@@ -1,4 +1,4 @@
-#include "card.h"
+#include "Card.h"
 
 #include <stdio.h>
 #include <iostream>
@@ -10,10 +10,10 @@ Card::Card (std::string gt) : generalText(gt) { }
 
 /* returning the general text */
 std::string Card::getGeneralText() {
-	return this.generalText;
+	return generalText;
 }
 
 /* basic print function */
 void Card::printGeneralText() {
-	std::cout << "GT: " << this.generalText << std::endl;
+	std::cout << "GT: " << generalText << std::endl;
 }
