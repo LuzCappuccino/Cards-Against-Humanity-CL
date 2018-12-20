@@ -11,8 +11,9 @@
 class PromptCard : public Card {
 
 	private: 
-		std::std::map<User, std::vector<ResponseCard>> submittedResponses;
+		std::map<User, std::vector<ResponseCard>> submittedResponses;
 		int validSubmissionSlots;
+		int findSubmissionSlots();
 
 	public: 
 		PromptCard();

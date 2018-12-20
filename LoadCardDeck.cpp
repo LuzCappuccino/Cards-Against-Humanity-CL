@@ -11,7 +11,14 @@ promptFileName(pd), responseFileName(rd) { }
 
 /* TODO: iterate through both sets and delete pointers to cards*/
 LoadCardDeck::~LoadCardDeck() {
-
+	std::set<Card*>::iterator it1;
+	for(it1 = promptDeck.begin(); it1 != promptDeck.end(); it1++) {
+		delete it1*;
+	}
+	std::set<Card*>::iterator it2;
+	for(it2 = responseDeck.begin(); it2 != responseDeck.end(); it2++) {
+		delete it2*;
+	}
 }
 
 void LoadCardDeck::load() {
