@@ -32,10 +32,12 @@ int PromptCard::getSubmissionSlots() {
 void PromptCard::addPlayerResponse(ResponseCard responseCard) {
 	User submittedBy = responseCard.belongsToUser();
 	std::map<User, std::vector<ResponseCard> >::iterator it = submittedResponses.find(submittedBy);
-	if(it != something) {
-
+	// meaning the user already exists within the map
+	// else means that this is the users first card submission 
+	if(it != submittedResponses.end()) {
+		it->second.push_back(responseCard);
 	} else {
-
+		
 	}
 }
 
