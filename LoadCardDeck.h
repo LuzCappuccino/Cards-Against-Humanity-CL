@@ -9,13 +9,13 @@ class LoadCardDeck {
 	private: 
 		std::string promptFileName;
 		std::string responseFileName;
-		std::set<Card*> promptDeck;
-		std::set<Card*> responseDeck;
+		std::set<PromptCard*> promptDeck;
+		std::set<ResponseCard*> responseDeck;
 
 	public:
 		LoadCardDeck(std::string pd, std::string rd);
 		~LoadCardDeck();
 		void load();
-		std::set<Card*> returnPromptDeck();
-		std::set<Card*> returnResponseDeck();
+		std::set<PromptCard*> returnPromptDeck();
+		std::set<ResponseCard*> returnResponseDeck();
 };
