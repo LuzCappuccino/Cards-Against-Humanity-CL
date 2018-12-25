@@ -37,7 +37,22 @@ void PromptCard::addPlayerResponse(ResponseCard responseCard) {
 	if(it != submittedResponses.end()) {
 		it->second.push_back(responseCard);
 	} else {
-		
+		std::vecotr<ResponseCard> newVec;
+		newVec.push_back(responseCard);
+		submittedResponses.insert(std::pair<User, std::vector<ResponseCard> >(submittedBy, newVec));
+	}
+}
+
+void PromptCard::printSubmittedResponses() {
+	std::map<User, std::vector<ResponseCard> >::iterator it;
+	for(it = submittedResponses.begin(); it != submittedResponses.end(); it++) {
+		User singleUser = it->first;
+		std::vector<ResponseCard> singleVec = it->second;
+		std::cout << "User: " << singleUser.getUsername() << std::endl;
+		for(int i = 0; i < singleVec.size(); i++) {
+			std::cout << singleVec[i].getGeneralText() << std::endl;
+		}
+		std::cout << std::endl;
 	}
 }
 
